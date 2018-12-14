@@ -14,7 +14,7 @@ namespace ToyRobot
             string inputCommand = String.Empty;
 
             Robot robot = new Robot();
-
+            var driver = new Command(robot);
             Console.Write("Robot initialised. \nPlease place the Robot firstly.\nThe right commands as follows\n-------------\nPLACE X,Y,DIRECTION e.g. PLACE 1,2,NORTH\nMOVE\nRIGHT\nLEFT\nREPORT\n-------------\n(Q at any time to quit)\n");
 
             while (true)
@@ -25,7 +25,7 @@ namespace ToyRobot
                 if (inputCommand.ToUpper().Equals("Q"))
                     break;
 
-                Console.WriteLine(robot.command(inputCommand));
+                Console.WriteLine(driver.ProcessCommand(inputCommand));
                 Console.WriteLine();
             }
             Console.WriteLine("Exited - press any key to close");
